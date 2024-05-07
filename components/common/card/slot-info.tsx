@@ -38,9 +38,9 @@ export const SlotInfo = ({ nickName, label, checked }: UserCardData & Props) => 
           </p>
         </div>
       </div>
-      <div className={`flex justify-between`}>
-        <span className={`text-foreground-50`}>{label}</span>
+      <div className={`flex gap-y-2`}>
         <Checkbox className={`pointer-events-none`} isSelected={checked.value} />
+        <span className={`text-foreground-50`}>{label}</span>
       </div>
     </div>
   );

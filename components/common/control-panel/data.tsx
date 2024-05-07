@@ -8,11 +8,15 @@ export const PANEL_BUTTONS: Buttons = {
     { Icon: LuHome, key: 'Home' },
     { Icon: LuPlay, key: 'Arena' },
     { Icon: LuUsers, key: 'Users' },
-    // { Icon: LuLogOut, key: 'Logout' },
   ],
   common: {
     iconSize: 22,
-    toolTip: { placement: 'right', color: 'foreground', radius: 'sm' },
+    toolTip: {
+      placement: 'right',
+      color: 'foreground',
+      radius: 'sm',
+      classNames: { base: `font-medium` },
+    },
     btnProps: { className: `bg-background-100`, isIconOnly: true },
   },
 };

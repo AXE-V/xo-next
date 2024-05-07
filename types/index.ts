@@ -55,9 +55,11 @@ export type UserCardData = {
   nickName?: string;
   label?: string;
   friend?: boolean;
-  status?: {
-    activity: 'online' | 'offline' | 'not active' | 'not disturb';
-    color: 'danger' | 'default' | 'primary' | 'secondary' | 'success' | 'warning' | undefined;
-  };
+  status?: UserCardStatus;
   imageUrl?: string;
+};
+
+export type UserCardStatus = {
+  activity: 'online' | 'offline' | 'not active' | 'not disturb';
+  color: 'danger' | 'default' | 'primary' | 'secondary' | 'success' | 'warning' | undefined;
 };

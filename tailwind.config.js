@@ -10,31 +10,10 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        appearance: 'appearance 150ms ease-out normal forwards',
-        disappearance: 'disappearance 150ms ease-in normal forwards',
         running1: 'running1 5s linear infinite',
         running2: 'running2 5s linear infinite',
       },
       keyframes: {
-        appearance: {
-          '0%': {
-            opacity: 0,
-            transform: 'scale(0.95)',
-          },
-          '60%': {
-            opacity: 0.75,
-            'backface-visibility': 'hidden',
-            'webkit-font-smoothing': 'antialiased',
-          },
-          '100%': {
-            opacity: 1,
-            transform: 'scale(1)',
-          },
-        },
-        disappearance: {
-          '0%': { opacity: 1, transform: 'translateZ(0) scale(1)' },
-          '100%': { opacity: 0, transform: ' transform: scale(0.85);' },
-        },
         running1: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' },
@@ -74,7 +53,8 @@ module.exports = {
             },
             background: {
               DEFAULT: '#1B1818',
-              50: '#403d39',
+              // 50: '#262221',
+              50: '#262221',
               100: '#252322',
               200: '#191515',
             },
@@ -94,7 +74,10 @@ module.exports = {
               // hover:bg input
               100: '#ccc5b9EE',
             },
-            default: {},
+            default: {
+              DEFAULT: '#403d39',
+              100: '#252322',
+            },
             // bg card
             content1: '#1B1818',
             // content2: 'red',

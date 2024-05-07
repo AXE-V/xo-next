@@ -21,7 +21,7 @@ import { Button } from '../../../button';
 import clsx from 'clsx';
 import { State } from '@/types';
 import { motion, Variants } from 'framer-motion';
-import { BtnInputOptions } from './components/btn-input-options';
+import { BtnUsersOptions } from './btn-users-options';
 
 export const InputUsers = ({ setStateVal, stateVal }: State) => {
   const inputRef = useRef(null);
@@ -34,21 +34,23 @@ export const InputUsers = ({ setStateVal, stateVal }: State) => {
   };
 
   return (
-    <Input
-      ref={inputRef}
-      value={inputValue}
-      onChange={onChange}
-      onFocusChange={() => setFocusInput(!focusInput)}
-      endContent={<BtnInputOptions focus={focusInput} />}
-      startContent={<LuSearch size={22} strokeWidth={2.3} />}
-      variant={`${focusInput ? 'bordered' : 'flat'}`}
-      color="secondary"
-      labelPlacement="inside"
-      classNames={{
-        base: `px-4 mb-2`,
-        input: `font-medium text-lg`,
-        inputWrapper: `text-background-200 data-[focus=true]:dark:text-primary data-[focus=true]:dark:border-secondary/75 w-400`,
-      }}
-    />
+    <>
+      <Input
+        ref={inputRef}
+        value={inputValue}
+        onChange={onChange}
+        onFocusChange={() => setFocusInput(!focusInput)}
+        endContent={<BtnUsersOptions focus={focusInput} />}
+        startContent={<LuSearch size={22} strokeWidth={2.3} />}
+        variant={`${focusInput ? 'bordered' : 'flat'}`}
+        color="secondary"
+        labelPlacement="inside"
+        classNames={{
+          base: `px-4 mb-2`,
+          input: `font-medium text-lg`,
+          inputWrapper: `text-background-200 data-[focus=true]:dark:text-primary data-[focus=true]:dark:border-secondary/75 w-400`,
+        }}
+      />
+    </>
   );
 };

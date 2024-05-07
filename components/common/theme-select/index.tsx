@@ -24,8 +24,9 @@ export const ThemeSelect = ({ style }: SvgProps) => {
   return (
     <NextSelect
       style={style}
+      classNames={{}}
+      className={`w-36 data-[hover=true]:transition-all`}
       aria-label="theme-select"
-      className={`w-36`}
       color="default"
       variant="flat"
       size="md"

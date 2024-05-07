@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'magma' }}>
           <div className="grid gap-0 grid-rows-[min-content,1fr,min-content] h-screen">
             <Header name="Joe Batista" />
-            <div className="flex pr-5 overflow-auto relative pt-5">
+            <div className="flex overflow-auto relative pt-0">
               <ControlPanel />
               <main className="flex flex-col w-full">{children}</main>
             </div>

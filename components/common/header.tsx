@@ -15,8 +15,8 @@ type Props = {
 export const Header = ({ name, metadata }: Props) => {
   const [bellIsOpen, setBellIsOpen] = useState(false);
   return (
-    <div className="flex justify-between items-center p-5 bg-background-300">
-      <NextUILogo height={36} />
+    <div className="flex justify-between items-center py-5 px-5 bg-background">
+      <NextUILogo height={37} />
       <div className="flex gap-8">
         <div className="flex gap-4 items-center">
           {/* <ThemeSwitch /> */}

@@ -18,7 +18,7 @@ export const SegmentUsers = () => {
   }, [selectedCard]);
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 pt-5 bg-background-200 rounded-tl-2xl">
       <InputUsers setStateVal={setInputValue} />
       <div className={`flex px-4 pb-4 pt-4 flex-col gap-2 overflow-y-auto scrollbar-hide`}>
         {users

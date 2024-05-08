@@ -24,7 +24,7 @@ module.exports = {
         },
       },
       width: {
-        400: '400px',
+        // 400: '400px',
       },
     },
   },
@@ -53,15 +53,12 @@ module.exports = {
             },
             background: {
               DEFAULT: '#1B1818',
-              // 50: '#262221',
               50: '#262221',
-              100: '#252322',
+              100: '#1E1A1A',
               200: '#191515',
             },
             foreground: {
-              // bg text
               DEFAULT: '#ccc5b9',
-              // color text
               50: '#8C867D',
             },
             primary: {
@@ -69,20 +66,14 @@ module.exports = {
             },
             secondary: {
               DEFAULT: '#eb5e28',
-              // bg input
               50: '#ccc5b9',
-              // hover:bg input
               100: '#ccc5b9EE',
             },
             default: {
               DEFAULT: '#403d39',
               100: '#252322',
             },
-            // bg card
             content1: '#1B1818',
-            // content2: 'red',
-            // content3: 'green',
-            // content4: 'blue',
           },
         },
         // ocean: {},

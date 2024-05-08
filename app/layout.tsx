@@ -5,6 +5,7 @@ import { Providers } from './providers';
 import clsx from 'clsx';
 import { Header } from '@/components/common/header';
 import { ControlPanel } from '@/components/common/control-panel/index';
+import { SegmentUsers } from '@/components/common/control-panel/components/segment-users';
 
 // export const metadata: Metadata = {
 //   title: {
@@ -30,15 +31,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head />
       <body className={clsx('min-h-screen font-sans antialiased relative', fontSans.variable)}>
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'magma' }}>
-          <div className="grid gap-0 grid-rows-[min-content,1fr,min-content] h-screen">
+          <div className="grid gap-0 grid-rows-[min-content,1fr] h-screen">
             <Header name="Joe Batista" />
-            <div className="flex overflow-auto relative pt-0">
+            <div className="flex overflow-auto relative mb-6">
               <ControlPanel />
-              <main className="flex flex-col w-full">{children}</main>
+              <main className="size-full bg-background-200">{children}</main>
             </div>
-            <footer className="flex flex-col justify-center items-center pt-2 bg-gray-80">
-              <span className={`py-2 text-foreground-50`}>© xo-next — 2024</span>
-            </footer>
           </div>
         </Providers>
       </body>

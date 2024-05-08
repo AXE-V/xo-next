@@ -2,7 +2,7 @@ import { Divider, Code, CardBody, CardHeader, Card as NextCard } from '@nextui-o
 
 export const Timer = () => {
   return (
-    <NextCard className={`w-full`}>
+    <NextCard className={`max-w-2xl shadow-none`}>
       <CardBody>
         <div className={`flex gap-4`}>
           <Code color="primary" className={`text-2xl `}>

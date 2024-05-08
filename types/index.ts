@@ -57,6 +57,8 @@ export type UserCardData = {
   friend?: boolean;
   status?: UserCardStatus;
   imageUrl?: string;
+  //
+  gameReady?: boolean;
 };
 
 export type UserCardStatus = {

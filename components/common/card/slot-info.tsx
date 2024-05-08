@@ -25,7 +25,7 @@ export const SlotInfo = ({ nickName, label, checked }: UserCardData & Props) => 
   }, []);
 
   return (
-    <div data-running-container className={`bg-background-100 w-48 rounded-lg p-2`}>
+    <div data-running-container className={`bg-background-50 w-48 rounded-lg p-2`}>
       <div className={`flex relative overflow-x-hidden`}>
         <div className={`whitespace-nowrap text-foreground`}>
           <p data-running1 className={`w-full`}>

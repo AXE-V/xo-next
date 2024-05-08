@@ -45,7 +45,7 @@ const ButtonTooltipCheckerComponent: FC<ButtonComponent> = ({
   return (
     <>
       {toolTip ? (
-        <Tooltip {...toolTip}>
+        <Tooltip color="foreground" radius="sm" classNames={{ base: `font-medium` }} {...toolTip}>
           <NextButton
             variant="light"
             color="primary"
@@ -68,76 +68,3 @@ const ButtonTooltipCheckerComponent: FC<ButtonComponent> = ({
     </>
   );
 };
-
-// не работает
-// export const Button = forwardRef<HTMLButtonElement, ButtonComponent>((props, ref) => {
-//   const { children, btnProps, Icon, toolTip, badge, dropdownTrigger } = props;
-//   const buttonProps = dropdownTrigger
-//     ? {
-//         ref,
-//         variant: 'light',
-//         color: 'primary',
-//         className: `data-[focus-visible=true]:outline-secondary ${btnProps?.className}`,
-//         ...btnProps,
-//       }
-//     : {
-//         ref,
-//         variant: 'light',
-//         color: 'primary',
-//         className: `data-[focus-visible=true]:outline-secondary ${btnProps?.className}`,
-//         ...btnProps,
-//       };
-
-//   return (
-//     <>
-//       {badge ? (
-//         <Badge {...badge}>
-//           <ButtonTooltipCheckerComponent
-//             dropdownTrigger={dropdownTrigger}
-//             btnProps={buttonProps}
-//             Icon={Icon}
-//             toolTip={toolTip}>
-//             {children}
-//           </ButtonTooltipCheckerComponent>
-//         </Badge>
-//       ) : (
-//         <ButtonTooltipCheckerComponent
-//           dropdownTrigger={dropdownTrigger}
-//           btnProps={buttonProps}
-//           Icon={Icon}
-//           toolTip={toolTip}>
-//           {children}
-//         </ButtonTooltipCheckerComponent>
-//       )}
-//     </>
-//   );
-// });
-
-// const ButtonTooltipCheckerComponent = forwardRef<HTMLButtonElement, ButtonComponent>(
-//   (props, ref) => {
-//     const { children, toolTip, btnProps, Icon, dropdownTrigger } = props;
-//     return (
-//       <>
-//         {toolTip ? (
-//           <Tooltip {...toolTip}>
-//             <NextButton
-//               ref={ref}
-//               {...btnProps}
-//               {...(dropdownTrigger && { 'data-dropdown-trigger': true })}>
-//               {Icon}
-//               {children}
-//             </NextButton>
-//           </Tooltip>
-//         ) : (
-//           <NextButton
-//             ref={ref}
-//             {...btnProps}
-//             {...(dropdownTrigger && { 'data-dropdown-trigger': true })}>
-//             {Icon}
-//             {children}
-//           </NextButton>
-//         )}
-//       </>
-//     );
-//   },
-// );

@@ -57,7 +57,7 @@ export const Card = ({
                 : 'hover:border-secondary hover:border-opacity-75'
             }`,
           ],
-          base: [`shrink-0 w-400 rounded-2xl cursor-default`],
+          base: [`shrink-0 w-[400px] rounded-2xl cursor-default shadow-none bg-background`],
         }}
         isDisabled={status?.activity === 'offline' ? true : false}>
         <CardHeader className={`cardHeader flex justify-between`} onClick={onClickCard}>

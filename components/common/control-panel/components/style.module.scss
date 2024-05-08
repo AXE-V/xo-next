@@ -1,0 +1,11 @@
+.usersMainWrapper {
+  @apply flex flex-col pt-4 gap-2 rounded-tl-2xl rounded-bl-2xl bg-background-200
+}
+
+.usersContainerWrapper {
+  @apply gap-4 px-4 mb-4 overflow-y-auto
+}
+
+.usersContainer {
+  @apply flex flex-col gap-2;
+}

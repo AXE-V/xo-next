@@ -1,12 +1,13 @@
 import { Buttons, UserCardData } from '@/types';
-import { LuHome, LuLogOut, LuPlay, LuUsers } from 'react-icons/lu';
+import { LuHome, LuLogOut, LuPlay, LuSwords, LuTrophy, LuUsers } from 'react-icons/lu';
 import { Button } from '@/components/common/button';
 import { TooltipProps } from '@nextui-org/react';
 
 export const PANEL_BUTTONS: Buttons = {
   buttons: [
     { Icon: LuHome, key: 'Home' },
-    { Icon: LuPlay, key: 'Arena' },
+    { Icon: LuSwords, key: 'Arena' },
+    { Icon: LuTrophy, key: 'Leaders' },
     { Icon: LuUsers, key: 'Users' },
   ],
   common: {
@@ -105,6 +106,30 @@ export const users: UserCardData[] = [
   },
   {
     id: 9,
+    nickName: 'Kevin Williams 6iosudgdiksuf',
+    label: 'Round 3/6',
+    status: { activity: 'not active', color: 'warning' },
+    imageUrl: 'https://i.pinimg.com/236x/fe/35/b5/fe35b577a6c1a7fcb359889d2b5af002.jpg',
+    friend: true,
+  },
+  {
+    id: 10,
+    nickName: 'Kevin Williams 6iosudgdiksuf',
+    label: 'Round 3/6',
+    status: { activity: 'not active', color: 'warning' },
+    imageUrl: 'https://i.pinimg.com/236x/fe/35/b5/fe35b577a6c1a7fcb359889d2b5af002.jpg',
+    friend: true,
+  },
+  {
+    id: 11,
+    nickName: 'Kevin Williams 6iosudgdiksuf',
+    label: 'Round 3/6',
+    status: { activity: 'not active', color: 'warning' },
+    imageUrl: 'https://i.pinimg.com/236x/fe/35/b5/fe35b577a6c1a7fcb359889d2b5af002.jpg',
+    friend: true,
+  },
+  {
+    id: 12,
     nickName: 'Kevin Williams 6iosudgdiksuf',
     label: 'Round 3/6',
     status: { activity: 'not active', color: 'warning' },

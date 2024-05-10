@@ -23,7 +23,9 @@ const usersBody = [
     friend: true,
     readiness: 'not ready',
     winrate: 50,
+    wins: '1',
     role: 'o',
+    rank: '3',
   },
   {
     key: 2,
@@ -34,7 +36,9 @@ const usersBody = [
     friend: true,
     readiness: 'ready',
     winrate: 67,
+    wins: '2',
     role: 'x',
+    rank: '8',
   },
 ];
 
@@ -43,6 +47,8 @@ const usersHeader = [
   { key: 'nickName', label: 'Nick Name' },
   { key: 'role', label: 'Role' },
   { key: 'winrate', label: 'Win Rate' },
+  { key: 'rank', label: 'Rank' },
+  { key: 'wins', label: 'Wins' },
 ];
 export const SegmentOpponents = () => {
   return (

@@ -1,7 +1,7 @@
 'use client';
-import { SegmentChat } from '@/components/common/segment-chat';
-import { SegmentOpponents } from '@/components/common/segment-opponents';
-import { Timer } from '@/components/common/segment-timer';
+import { SegmentChat } from '@/components/common/segments/chat';
+import { SegmentOpponents } from '@/components/common/segments/opponents';
+import { Timer } from '@/components/common/segments/timer';
 import { title } from '@/components/primitives';
 import { Card as NextCard } from '@nextui-org/react';
 import clsx from 'clsx';

@@ -11,6 +11,7 @@ export interface SvgProps extends SVGProps<SVGSVGElement> {
 // types button
 export type ButtonSetting<T = any> = {
   key: React.Key;
+  url?: string;
   Icon?: IconType;
   state?: State<T>;
   badge?: BadgeProps;

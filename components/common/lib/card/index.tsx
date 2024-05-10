@@ -3,20 +3,20 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-  Card as NextCard,
+  Card,
   Avatar,
-  Button as NextButton,
+  Button,
   Badge,
   Checkbox,
   ListboxItem,
 } from '@nextui-org/react';
 import { LuUserMinus, LuUserPlus, LuSend, LuSendHorizonal, LuMailCheck } from 'react-icons/lu';
 import { SyntheticEvent, useEffect, useRef, useState } from 'react';
-import { Button } from '../button';
+import { CButton } from '../button';
 import { SlotInfo } from './slot-info';
 import { State, UserCardData } from '@/types';
 
-export const Card = ({
+export const CCard = ({
   nickName,
   label,
   status,
@@ -26,15 +26,9 @@ export const Card = ({
   id,
 }: UserCardData & State<string[]>) => {
   const [invited, setInvited] = useState(false);
-  // const [checked, setChecked] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // const cardHeader = cardRef.current?.querySelector('.cardHeader');
-    // if (cardHeader) {
-    //   stateVal?.includes(id);
-    // }
-  }, [stateVal]);
+  useEffect(() => {}, [stateVal]);
 
   const onClickCard = () => {
     if (!stateVal?.includes(id)) {
@@ -46,7 +40,7 @@ export const Card = ({
 
   return (
     <>
-      <NextCard
+      <Card
         aria-labelledby="card-user"
         ref={cardRef}
         classNames={{
@@ -71,7 +65,7 @@ export const Card = ({
             />
           </Badge>
           <SlotInfo nickName={nickName} label={label} checked={{ value: stateVal?.includes(id) }} />
-          <Button
+          <CButton
             btnProps={{
               startContent: invited ? <LuMailCheck size={22} /> : <LuSend size={22} />,
               variant: 'flat',
@@ -81,9 +75,9 @@ export const Card = ({
               className: `w-28`,
             }}>
             {invited ? 'Invited' : 'Invite'}
-          </Button>
+          </CButton>
         </CardHeader>
-      </NextCard>
+      </Card>
     </>
   );
 };

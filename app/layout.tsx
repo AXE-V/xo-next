@@ -5,7 +5,6 @@ import { Providers } from './providers';
 import clsx from 'clsx';
 import { Header } from '@/components/common/header';
 import { ControlPanel } from '@/components/common/control-panel/index';
-import { SegmentUsers } from '@/components/common/control-panel/components/segment-users';
 
 // export const metadata: Metadata = {
 //   title: {

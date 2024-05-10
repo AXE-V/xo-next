@@ -1,14 +1,16 @@
+'use client';
 import { Buttons, UserCardData } from '@/types';
 import { LuHome, LuLogOut, LuPlay, LuSwords, LuTrophy, LuUsers } from 'react-icons/lu';
-import { Button } from '@/components/common/button';
+import { CButton } from '@/components/common/lib/button';
 import { TooltipProps } from '@nextui-org/react';
+// import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 export const PANEL_BUTTONS: Buttons = {
   buttons: [
-    { Icon: LuHome, key: 'Home' },
-    { Icon: LuSwords, key: 'Arena' },
-    { Icon: LuTrophy, key: 'Leaders' },
-    { Icon: LuUsers, key: 'Users' },
+    { Icon: LuHome, key: 'Home', url: '/' },
+    { Icon: LuSwords, key: 'Arena', url: '/arena' },
+    { Icon: LuTrophy, key: 'Leaders', url: '/leaders' },
   ],
   common: {
     iconSize: 22,
@@ -18,25 +20,24 @@ export const PANEL_BUTTONS: Buttons = {
       radius: 'sm',
       classNames: { base: `font-medium` },
     },
-    btnProps: { className: `bg-background-100`, isIconOnly: true },
+    btnProps: { className: `bg-background-50`, isIconOnly: true },
   },
 };
 
-export const renderControlPanel = ({ buttons, common }: Buttons) => {
-  return buttons.map((obj) => {
+export const renderControlPanel = ({ buttons, common }: Buttons) =>
+  buttons.map((obj) => {
     const toolTipObj: TooltipProps = { ...common?.toolTip, content: obj.key };
-
+    const router = useRouter();
     return (
-      <Button
+      <CButton
         key={obj.key}
         Icon={obj.Icon?.({ size: common?.iconSize })}
         badge={obj.badge}
-        btnProps={common?.btnProps}
+        btnProps={{ ...common?.btnProps, onClick: () => obj.url && router.push(obj.url) }}
         toolTip={toolTipObj}
       />
     );
   });
-};
 
 // example
 export const users: UserCardData[] = [

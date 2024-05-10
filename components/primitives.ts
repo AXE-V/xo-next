@@ -1,4 +1,5 @@
 import { tv } from 'tailwind-variants';
+import { LbClassNames } from './common/lib/listBox/types';
 
 export const title = tv({
   base: 'tracking-tight inline font-semibold',
@@ -43,3 +44,12 @@ export const subtitle = tv({
     fullWidth: true,
   },
 });
+
+export const lbdefaultClassNames: LbClassNames = {
+  listbox: { base: `p-0` },
+  listboxSection: { heading: 'text-foreground-50' },
+  listboxItem: {
+    base: 'data-[hover=true]:bg-background-50 group/item',
+    description: 'group-hover:text-foreground-50',
+  },
+};

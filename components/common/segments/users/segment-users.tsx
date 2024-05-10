@@ -2,12 +2,11 @@
 import { Input, Listbox } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
 import { LuSearch, LuSliders } from 'react-icons/lu';
-import { users } from '../data';
-import { Card } from '../../card';
-import { Button } from '../../button';
 import { InputUsers } from './input-users';
 import { UserCardData } from '@/types';
 import styles from './style.module.scss';
+import { users } from '../../control-panel/data';
+import { CCard } from '../../lib/card';
 
 export const SegmentUsers = () => {
   const [inputOptions, setInputOptions] = useState({});
@@ -26,7 +25,7 @@ export const SegmentUsers = () => {
           {users
             .filter((user) => user.nickName?.includes(inputValue))
             .map((user) => (
-              <Card
+              <CCard
                 key={user.id}
                 {...user}
                 id={user.id}

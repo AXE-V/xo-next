@@ -1,32 +1,19 @@
 'use client';
-import {
-  Button as NextButton,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
-  Input,
-  Tab,
-  Tabs,
-  Tooltip,
-  Card,
-  CardBody,
-  Listbox,
-  ListboxSection,
-  ListboxItem,
-} from '@nextui-org/react';
+import { Input } from '@nextui-org/react';
 import { SyntheticEvent, useRef, useState } from 'react';
 import { LuSearch, LuSliders } from 'react-icons/lu';
-import { Button } from '../../../button';
 import clsx from 'clsx';
 import { State } from '@/types';
-import { motion, Variants } from 'framer-motion';
-import { BtnUsersOptions } from './btn-users-options';
+import { CButton } from '@/components/common/lib/button';
+import { CListbox } from '@/components/common/lib/listBox';
+import { useUsersMenu } from './hooks/useUsersMenu';
 
 export const InputUsers = ({ setStateVal, stateVal }: State) => {
+  const { lbData } = useUsersMenu();
   const inputRef = useRef(null);
   const [inputValue, setInputValue] = useState('');
   const [focusInput, setFocusInput] = useState(false);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const onChange = (e: SyntheticEvent<EventTarget>) => {
     setInputValue((e.target as HTMLInputElement).value);
@@ -40,7 +27,28 @@ export const InputUsers = ({ setStateVal, stateVal }: State) => {
         value={inputValue}
         onChange={onChange}
         onFocusChange={() => setFocusInput(!focusInput)}
-        endContent={<BtnUsersOptions focus={focusInput} />}
+        endContent={
+          <div className="relative">
+            <CButton
+              toolTip={{
+                content: 'Options',
+                color: 'foreground',
+                radius: 'sm',
+                classNames: { base: `font-medium` },
+              }}
+              btnProps={{
+                onClick: () => setMenuIsOpen(!menuIsOpen),
+                isIconOnly: true,
+                className: clsx(
+                  `data-[hover=true]:bg-transparent, text-background-200`,
+                  focusInput ? 'text-foreground' : void 0,
+                ),
+              }}>
+              <LuSliders size={22} />
+            </CButton>
+            <CListbox lbData={lbData} isOpen={menuIsOpen} />
+          </div>
+        }
         startContent={<LuSearch size={22} strokeWidth={2.3} />}
         variant={`${focusInput ? 'bordered' : 'flat'}`}
         color="secondary"

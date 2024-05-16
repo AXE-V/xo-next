@@ -16,10 +16,14 @@ export interface LbSections {
   template: ReactNode;
 }
 
+export interface LbOwnTemplate {
+  ownTemplate?: (props: ListboxItemProps & State) => JSX.Element;
+}
+
 export type SectionProps = {
-  title: string;
+  title?: string;
   // items: Array<{ child: string | ReactNode; value: string }>;
-  items: (ListboxItemProps & State)[];
+  items: (ListboxItemProps & State & LbOwnTemplate)[];
   // template?: (children: string | ReactNode) => JSX.Element;
   template?: (props: ListboxItemProps & State) => JSX.Element;
 };

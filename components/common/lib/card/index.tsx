@@ -43,6 +43,7 @@ export const CCard = ({
       <Card
         aria-labelledby="card-user"
         ref={cardRef}
+        className=""
         classNames={{
           header: [
             `border-2 border-transparent transition-all rounded-2xl ${

@@ -1,7 +1,7 @@
 'use client';
-import { ButtonComponent, Buttons, State, SvgProps } from '@/types';
 import { Button, ButtonProps, Tooltip, TooltipProps, BadgeProps, Badge } from '@nextui-org/react';
 import { FC, forwardRef } from 'react';
+import { ButtonComponent } from './types';
 
 /**
  * @param btnProps

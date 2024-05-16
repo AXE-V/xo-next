@@ -23,9 +23,6 @@ module.exports = {
           '100%': { transform: 'translateX(0%)' },
         },
       },
-      width: {
-        // 400: '400px',
-      },
     },
   },
   darkMode: 'class',
@@ -56,6 +53,7 @@ module.exports = {
               50: '#262221',
               100: '#1E1A1A',
               200: '#191515',
+              300: '#393432',
             },
             foreground: {
               DEFAULT: '#ccc5b9',
@@ -63,6 +61,8 @@ module.exports = {
             },
             primary: {
               DEFAULT: '#ccc5b9',
+              50: '#262221',
+              100: '#231F1F',
             },
             secondary: {
               DEFAULT: '#eb5e28',
@@ -71,6 +71,7 @@ module.exports = {
             },
             default: {
               DEFAULT: '#403d39',
+              foreground: '#ccc5b9',
               100: '#252322',
             },
             content1: '#1B1818',

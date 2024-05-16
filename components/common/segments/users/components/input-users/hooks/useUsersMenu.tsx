@@ -1,7 +1,7 @@
 'use client';
 import { ListboxConfig } from '@/components/common/lib/listBox/types';
 import { SwitchTemplate } from '@/components/common/lib/switch/template';
-import { lbdefaultClassNames } from '@/components/primitives';
+import { lbDefaultClassNames } from '@/components/primitives';
 import { State } from '@/types';
 import { ListboxItemProps } from '@nextui-org/react';
 import { useState } from 'react';
@@ -81,7 +81,7 @@ export const useUsersMenu = () => {
         ],
       },
     ],
-    classNames: lbdefaultClassNames,
+    classNames: lbDefaultClassNames,
   };
 
   return {

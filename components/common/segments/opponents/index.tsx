@@ -1,3 +1,4 @@
+'use client';
 import { UserCardData } from '@/types';
 import {
   CardBody,
@@ -8,6 +9,7 @@ import {
   TableCell,
   TableColumn,
   TableHeader,
+  TableProps,
   TableRow,
   getKeyValue,
   user,
@@ -53,13 +55,17 @@ const usersHeader = [
 export const SegmentOpponents = () => {
   return (
     <>
-      <Table classNames={{ wrapper: 'shadow-none' }}>
-        <TableHeader columns={usersHeader}>
-          {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
+      <Table classNames={{ wrapper: 'shadow-none' }} aria-labelledby="opponents table">
+        <TableHeader columns={usersHeader} aria-labelledby="opponents header">
+          {(column) => (
+            <TableColumn aria-labelledby={`opponents column ${column.label}`} key={column.key}>
+              {column.label}
+            </TableColumn>
+          )}
         </TableHeader>
-        <TableBody emptyContent={'No enemy'} items={usersBody}>
+        <TableBody emptyContent={'No enemy'} items={usersBody} aria-labelledby="opponents body">
           {(item) => (
-            <TableRow key={item.key}>
+            <TableRow key={item.key} aria-labelledby={`opponents row ${item.key}`}>
               {(colKey) => <TableCell>{getKeyValue(item, colKey)}</TableCell>}
             </TableRow>
           )}

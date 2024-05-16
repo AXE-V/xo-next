@@ -1,79 +1,114 @@
 'use client';
-import { lbdefaultClassNames } from '@/components/primitives';
-import React, { useState } from 'react';
+import { useState } from 'react';
+
+import { lbDefaultClassNames } from '@/components/primitives';
 import { ListboxConfig } from '../../lib/listBox/types';
-import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalProps,
-  useDisclosure,
-} from '@nextui-org/react';
-
-type Props = {
-  isOpen: boolean;
-  onOpenChange: any;
-};
-
-const CModal = ({ isOpen, onOpenChange }: Props) => {
-  return (
-    <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-      <ModalContent>
-        {(onClose) => (
-          <>
-            <ModalHeader></ModalHeader>
-            <ModalBody></ModalBody>
-            <ModalFooter>
-              <div onClick={onClose}>close</div>
-            </ModalFooter>
-          </>
-        )}
-      </ModalContent>
-    </Modal>
-  );
-};
+import { useDisclosure } from '@nextui-org/react';
+import { signOut } from '@/app/login/actions';
+import { ModalTemplate } from '../../lib/modal/template';
+import { ModalConfig } from '../../lib/modal/template';
+import { UserStatus } from '@/types';
 
 export const useUserMenu = () => {
+  const [userStatus, setUserStatus] = useState<UserStatus>({
+    activity: 'online',
+    color: 'success',
+  });
+  const [userOptionsIsOpen, setUserOptionsIsOpen] = useState(false);
   const [isRules, setIsRules] = useState(false);
-  const [isLogout, setIsLogout] = useState(false);
-  const { onClose, onOpen, onOpenChange } = useDisclosure();
+  const rulesModal = useDisclosure();
 
+  const onlineStatus = () => {
+    setUserStatus({ activity: 'online', color: 'success' });
+    setUserOptionsIsOpen(!userOptionsIsOpen);
+  };
+  const offlineStatus = () => {
+    setUserStatus({ activity: 'offline', color: 'default' });
+    setUserOptionsIsOpen(!userOptionsIsOpen);
+  };
+  const notActiveStatus = () => {
+    setUserStatus({ activity: 'not active', color: 'warning' });
+    setUserOptionsIsOpen(!userOptionsIsOpen);
+  };
+  const notDisturbStatus = () => {
+    setUserStatus({ activity: 'not disturb', color: 'danger' });
+    setUserOptionsIsOpen(!userOptionsIsOpen);
+  };
+
+  // lbConfig
   const lbData: ListboxConfig = {
     sections: [
+      {
+        title: 'Activity',
+        items: [
+          { children: <>Online</>, value: 'Online', key: 'Online', onClick: onlineStatus },
+          { children: <>Offline</>, value: 'Offline', key: 'Offline', onClick: offlineStatus },
+          {
+            children: <>Not Active</>,
+            value: 'Not Active',
+            key: 'Not Active',
+            onClick: notActiveStatus,
+          },
+          {
+            children: <>Not Disturb</>,
+            value: 'Not Disturb',
+            key: 'Not Disturb',
+            onClick: notDisturbStatus,
+          },
+        ],
+      },
       {
         title: 'Shared',
         items: [
           {
-            children: 'Rules',
+            children: <span onClick={rulesModal.onOpen}>Rules</span>,
             value: 'Rules',
             key: 'Rules',
             onClick: () => setIsRules(!isRules),
             stateVal: isRules,
+            ownTemplate: ({ children }) => (
+              <ModalTemplate modalConfig={rulesModalConfig}>{children}</ModalTemplate>
+            ),
           },
           {
-            children: 'Logout',
+            children: (
+              <form action={signOut}>
+                <label>
+                  <button
+                    onClick={() => setUserOptionsIsOpen(!userOptionsIsOpen)}
+                    type="submit"
+                    hidden
+                  />
+                  Logout
+                </label>
+              </form>
+            ),
             value: 'Logout',
             key: 'Logout',
-            onClick: () => setIsLogout(!isLogout),
-            stateVal: isLogout,
           },
         ],
       },
     ],
-    classNames: lbdefaultClassNames,
+    classNames: lbDefaultClassNames,
   };
 
-  return {
-    CModal,
-    lbData,
-    isRules,
-    setIsRules,
-    isLogout,
-    setIsLogout,
-    onClose,
-    onOpen,
-    onOpenChange,
+  // ModalConfig
+  const rulesModalConfig: ModalConfig = {
+    modal: { onOpenChange: rulesModal.onOpenChange, isOpen: rulesModal.isOpen, children: <></> },
+    header: { children: <>Game rules</> },
+    body: {
+      children: (
+        <>
+          One player moves with crosses, and the other plays with zeros. The first one to line up 3
+          of his pieces vertically, horizontally or diagonally wins. The first move is made by the
+          player placing crosses.
+        </>
+      ),
+    },
+    footer: {
+      children: <>close</>,
+    },
   };
+
+  return { userStatus, userOptionsIsOpen, setUserOptionsIsOpen, lbData };
 };

@@ -2,7 +2,7 @@ import { tv } from 'tailwind-variants';
 import { LbClassNames } from './common/lib/listBox/types';
 
 export const title = tv({
-  base: 'tracking-tight inline font-semibold',
+  base: 'tracking-tight inline',
   variants: {
     color: {
       violet: 'from-[#FF1CF7] to-[#b249f8]',
@@ -45,7 +45,7 @@ export const subtitle = tv({
   },
 });
 
-export const lbdefaultClassNames: LbClassNames = {
+export const lbDefaultClassNames: LbClassNames = {
   listbox: { base: `p-0` },
   listboxSection: { heading: 'text-foreground-50' },
   listboxItem: {

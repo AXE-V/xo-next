@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 import { State } from '@/types';
 import {
   Card,
@@ -17,54 +17,6 @@ import { LuBan, LuUndoDot, LuUserMinus2 } from 'react-icons/lu';
 import { ListboxConfig } from './types';
 import { ListboxTemplate } from './template';
 import { SwitchTemplate } from '../switch/template';
-
-const lbActivity: (ListboxItemProps & State)[] = [
-  {
-    key: 'Only Friends',
-    children: <>Only Friends</>,
-    onClick: () => {},
-    stateVal: {},
-  },
-  {
-    key: 'Online',
-    children: <>Online</>,
-    onClick: () => {},
-    stateVal: {},
-  },
-  {
-    key: 'Blacklisted',
-    children: <>Blacklisted</>,
-    onClick: () => {},
-    stateVal: {},
-  },
-  {
-    key: 'Expectation',
-    children: <>Expectation</>,
-    onClick: () => {},
-    stateVal: {},
-  },
-];
-
-const lbActions: ListboxItemProps[] = [
-  {
-    key: 'Add to blacklist',
-    children: <>Add to blacklist</>,
-    description: <>You will not receive notifications from selected user</>,
-    startContent: <LuBan size={22} />,
-  },
-  {
-    key: 'Return from blacklist',
-    children: <>Return from blacklist</>,
-    description: <>Returns selected users from your blocklist</>,
-    startContent: <LuUndoDot size={22} />,
-  },
-  {
-    key: 'Remove users',
-    children: <>Remove users</>,
-    description: <>Remove selected users from your list</>,
-    startContent: <LuUserMinus2 size={22} />,
-  },
-];
 
 export const CListbox = ({ isOpen, lbData }: { isOpen: boolean; lbData: ListboxConfig }) => {
   return (

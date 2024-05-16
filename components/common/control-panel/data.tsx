@@ -1,10 +1,11 @@
 'use client';
-import { Buttons, UserCardData } from '@/types';
 import { LuHome, LuLogOut, LuPlay, LuSwords, LuTrophy, LuUsers } from 'react-icons/lu';
 import { CButton } from '@/components/common/lib/button';
 import { TooltipProps } from '@nextui-org/react';
-// import { useRouter } from 'next/router';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import clsx from 'clsx';
+import { Buttons } from '../lib/button/types';
+import { UserCardData } from '@/types';
 
 export const PANEL_BUTTONS: Buttons = {
   buttons: [
@@ -24,20 +25,28 @@ export const PANEL_BUTTONS: Buttons = {
   },
 };
 
-export const renderControlPanel = ({ buttons, common }: Buttons) =>
-  buttons.map((obj) => {
+export const renderControlPanel = ({ buttons, common }: Buttons) => {
+  const router = useRouter();
+  const path = usePathname();
+  return buttons.map((obj) => {
     const toolTipObj: TooltipProps = { ...common?.toolTip, content: obj.key };
-    const router = useRouter();
     return (
       <CButton
         key={obj.key}
         Icon={obj.Icon?.({ size: common?.iconSize })}
         badge={obj.badge}
-        btnProps={{ ...common?.btnProps, onClick: () => obj.url && router.push(obj.url) }}
+        btnProps={{
+          ...common?.btnProps,
+          onClick: () => obj.url && router.push(obj.url),
+          className: clsx(
+            path === obj.url ? 'bg-background-200 text-secondary' : common?.btnProps?.className,
+          ),
+        }}
         toolTip={toolTipObj}
       />
     );
   });
+};
 
 // example
 export const users: UserCardData[] = [

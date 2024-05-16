@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 
 export const ThemeSelect = ({ style }: SvgProps) => {
   const [mounted, setMounted] = useState(false);
-  const { setTheme, themes } = useTheme();
+  const { setTheme } = useTheme();
 
   const THEMES = [
     { key: 'dark', label: 'Magma' },
@@ -24,7 +24,9 @@ export const ThemeSelect = ({ style }: SvgProps) => {
   return (
     <NextSelect
       style={style}
-      classNames={{ base: 'data-[hover=true]:bg-secondary' }}
+      classNames={{
+        trigger: 'data-[hover=true]:bg-background-300 transition',
+      }}
       className={`w-36`}
       aria-label="theme-select"
       color="default"
